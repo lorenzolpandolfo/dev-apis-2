@@ -24,7 +24,7 @@ class AreaDeConhecimentoService {
       throw new Error("Nome e descrição são obrigatórios");
     }
 
-    const existing = await AreaDeConhecimentoRepository.findByName(nome);
+    const existing = await AreaDeConhecimentoRepository.findByNome(nome);
     if (existing) {
       throw new Error("Área com este nome já existe");
     }

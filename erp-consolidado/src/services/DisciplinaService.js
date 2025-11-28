@@ -46,10 +46,6 @@ class DisciplinaService {
       throw new Error("Carga horária deve ser maior que zero");
     }
 
-    if (semestre <= 0) {
-      throw new Error("Semestre deve ser maior que zero");
-    }
-
     return await DisciplinaRepository.create({
       nome,
       descricao,

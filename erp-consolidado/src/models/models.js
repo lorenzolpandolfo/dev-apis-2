@@ -232,13 +232,6 @@ const Class = sequelize.define(
         key: "id",
       },
     },
-    // disciplinaId: {
-    //   type: DataTypes.UUID,
-    //   references: {
-    //     model: "disciplina",
-    //     key: "id",
-    //   },
-    // },
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
@@ -371,7 +364,7 @@ const Disciplina = sequelize.define(
       allowNull: false,
     },
     semestre: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     createdAt: {
@@ -489,8 +482,9 @@ const Turma = sequelize.define(
 
     disciplinaId: {
       type: DataTypes.UUID,
+      unique: true,
       references: {
-        model: "disciplina",
+        model: "disciplinas",
         key: "id",
       },
     },
@@ -518,6 +512,7 @@ Turma.belongsTo(Professor, { foreignKey: "professorId" });
 Professor.hasMany(Turma, { foreignKey: "professorId" });
 
 Turma.belongsTo(Disciplina, { foreignKey: "disciplinaId" });
+Disciplina.hasOne(Turma, { foreignKey: "disciplinaId" });
 
 Matricula.belongsTo(Aluno, { foreignKey: "alunoId" });
 Aluno.hasMany(Matricula, { foreignKey: "alunoId" });
