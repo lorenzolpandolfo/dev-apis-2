@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: erp-consolidado
+    env: node
+    plan: free
+    branch: main
+    buildCommand: cd erp-consolidado && npm install
+    startCommand: cd erp-consolidado && npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
+    autoDeploy: true
