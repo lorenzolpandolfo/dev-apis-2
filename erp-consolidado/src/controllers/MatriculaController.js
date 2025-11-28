@@ -38,11 +38,11 @@ class MatriculaController {
 
   async create(req, res) {
     try {
-      const { alunoId, turmaId, dataEnrollment } = req.body;
+      const { alunoId, turmaId, dataMatricula } = req.body;
       const matricula = await MatriculaService.createEnrollment({
         alunoId,
         turmaId,
-        dataEnrollment,
+        dataMatricula,
       });
       res.status(201).json({
         status: "success",

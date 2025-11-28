@@ -20,11 +20,10 @@ class TurmaService {
   }
 
   async createClass(turmaData) {
-    const { nome, professorId, areaDeConhecimentoId, descricao, horario } =
-      turmaData;
+    const { semestre, professorId, disciplinaId } = turmaData;
 
-    if (!nome || !professorId) {
-      throw new Error("Nome e professor são obrigatórios");
+    if (!semestre || !professorId || !disciplinaId) {
+      throw new Error("Semestre, Professor e disciplina são obrigatórios");
     }
 
     const professor = await ProfessorRepository.findById(professorId);
@@ -33,11 +32,9 @@ class TurmaService {
     }
 
     return await TurmaRepository.create({
-      nome,
+      semestre,
       professorId,
-      areaDeConhecimentoId,
-      descricao,
-      horario,
+      disciplinaId,
       dataCriacao: new Date().toISOString(),
     });
   }

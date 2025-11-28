@@ -1,16 +1,16 @@
 /**
- * Controlador de Professores
+ * Controlador de Cursos
  */
 
-const ProfessorService = require("../services/ProfessorService");
+const CursoService = require("../services/CursoService");
 
-class ProfessorController {
+class CursoController {
   async getAll(req, res) {
     try {
-      const professors = await ProfessorService.getAllProfessors();
+      const cursos = await CursoService.getAllCourses();
       res.status(200).json({
         status: "success",
-        data: professors,
+        data: cursos,
       });
     } catch (error) {
       res.status(500).json({
@@ -23,10 +23,10 @@ class ProfessorController {
   async getById(req, res) {
     try {
       const { id } = req.params;
-      const professor = await ProfessorService.getProfessorById(id);
+      const curso = await CursoService.getCourseById(id);
       res.status(200).json({
         status: "success",
-        data: professor,
+        data: curso,
       });
     } catch (error) {
       res.status(404).json({
@@ -38,17 +38,28 @@ class ProfessorController {
 
   async create(req, res) {
     try {
-      const { nome, email, telefone, escolaridade } = req.body;
-      const professor = await ProfessorService.createProfessor({
+      const {
         nome,
-        email,
-        telefone,
-        escolaridade,
+        descricao,
+        areaDeConhecimentoId,
+        cargaHoraria,
+        numeroSemestres,
+        modalidade,
+      } = req.body;
+
+      const curso = await CursoService.createCourse({
+        nome,
+        descricao,
+        areaDeConhecimentoId,
+        cargaHoraria,
+        numeroSemestres,
+        modalidade,
       });
+
       res.status(201).json({
         status: "success",
-        message: "Professor criado com sucesso",
-        data: professor,
+        data: curso,
+        message: "Curso criado com sucesso",
       });
     } catch (error) {
       res.status(400).json({
@@ -61,11 +72,12 @@ class ProfessorController {
   async update(req, res) {
     try {
       const { id } = req.params;
-      const professor = await ProfessorService.updateProfessor(id, req.body);
+      const curso = await CursoService.updateCourse(id, req.body);
+
       res.status(200).json({
         status: "success",
-        message: "Professor atualizado com sucesso",
-        data: professor,
+        data: curso,
+        message: "Curso atualizado com sucesso",
       });
     } catch (error) {
       res.status(400).json({
@@ -78,10 +90,11 @@ class ProfessorController {
   async delete(req, res) {
     try {
       const { id } = req.params;
-      await ProfessorService.deleteProfessor(id);
+      await CursoService.deleteCourse(id);
+
       res.status(200).json({
         status: "success",
-        message: "Professor deletado com sucesso",
+        message: "Curso deletado com sucesso",
       });
     } catch (error) {
       res.status(400).json({
@@ -90,22 +103,6 @@ class ProfessorController {
       });
     }
   }
-
-  async getClasses(req, res) {
-    try {
-      const { id } = req.params;
-      const classes = await ProfessorService.getProfessorClasses(id);
-      res.status(200).json({
-        status: "success",
-        data: classes,
-      });
-    } catch (error) {
-      res.status(500).json({
-        status: "error",
-        message: error.message,
-      });
-    }
-  }
 }
 
-module.exports = new ProfessorController();
+module.exports = new CursoController();

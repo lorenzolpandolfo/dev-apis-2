@@ -38,14 +38,11 @@ class TurmaController {
 
   async create(req, res) {
     try {
-      const { nome, professorId, areaDeConhecimentoId, descricao, horario } =
-        req.body;
+      const { semestre, professorId, disciplinaId } = req.body;
       const turma = await TurmaService.createClass({
-        nome,
+        semestre,
         professorId,
-        areaDeConhecimentoId,
-        descricao,
-        horario,
+        disciplinaId,
       });
       res.status(201).json({
         status: "success",

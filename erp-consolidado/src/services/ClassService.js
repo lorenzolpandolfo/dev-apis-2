@@ -22,18 +22,18 @@ class ClassService {
   }
 
   async createClass(classData) {
-    const { name, teacherId, description, startDate, endDate } = classData;
+    const { nome, professorId, descricao, comeco, fim } = classData;
 
-    if (!name || !teacherId) {
+    if (!nome || !professorId) {
       throw new Error("Nome e professor são obrigatórios");
     }
 
     return await ClassRepository.create({
-      name,
-      teacherId,
-      description,
-      startDate,
-      endDate,
+      nome,
+      professorId,
+      descricao,
+      comeco,
+      fim,
       createdAt: new Date().toISOString(),
     });
   }

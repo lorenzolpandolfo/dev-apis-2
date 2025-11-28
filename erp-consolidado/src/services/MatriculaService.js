@@ -20,7 +20,7 @@ class MatriculaService {
   }
 
   async createEnrollment(matriculaData) {
-    const { alunoId, turmaId, dataEnrollment } = matriculaData;
+    const { alunoId, turmaId, dataMatricula } = matriculaData;
 
     if (!alunoId || !turmaId) {
       throw new Error("Aluno e turma são obrigatórios");
@@ -47,7 +47,7 @@ class MatriculaService {
     return await MatriculaRepository.create({
       alunoId,
       turmaId,
-      dataEnrollment: dataEnrollment || new Date().toISOString(),
+      dataMatricula: dataMatricula || new Date().toISOString(),
       status: "ativa",
     });
   }

@@ -38,13 +38,13 @@ class ClassController {
 
   async create(req, res) {
     try {
-      const { name, teacherId, description, startDate, endDate } = req.body;
+      const { nome, professorId, descricao, comeco, fim } = req.body;
       const classData = await ClassService.createClass({
-        name,
-        teacherId,
-        description,
-        startDate,
-        endDate,
+        nome,
+        professorId,
+        descricao,
+        comeco,
+        fim,
       });
       res.status(201).json({
         status: "success",

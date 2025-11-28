@@ -27,10 +27,10 @@ class ProfessorService {
   }
 
   async createProfessor(professorData) {
-    const { matricula, nome, email, telefone, especialidade } = professorData;
+    const { nome, email, telefone, escolaridade } = professorData;
 
-    if (!matricula || !nome || !email) {
-      throw new Error("Matrícula, nome e email são obrigatórios");
+    if (!escolaridade || !nome || !email || !telefone) {
+      throw new Error("Escolaridade, nome, email e telefone são obrigatórios");
     }
 
     const existingByEmail = await ProfessorRepository.findByEmail(email);
@@ -38,19 +38,11 @@ class ProfessorService {
       throw new Error("Já existe um professor com este email");
     }
 
-    const existingByMatricula = await ProfessorRepository.findByMatricula(
-      matricula
-    );
-    if (existingByMatricula) {
-      throw new Error("Já existe um professor com esta matrícula");
-    }
-
     return await ProfessorRepository.create({
-      matricula,
       nome,
       email,
       telefone,
-      especialidade,
+      escolaridade,
     });
   }
 
