@@ -14,9 +14,10 @@ class AuthService {
   }
 
   async register(userData) {
-    const { email, password, nome, role = "user" } = userData;
+    console.log("UserData: ", userData);
+    const { email, password, name, role = "user" } = userData;
 
-    if (!email || !password || !nome) {
+    if (!email || !password || !name) {
       throw new Error("Email, senha e nome são obrigatórios");
     }
 
@@ -29,7 +30,7 @@ class AuthService {
     const newUser = await UserRepository.create({
       email,
       password: hashedPassword,
-      nome,
+      name,
       role,
     });
 

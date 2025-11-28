@@ -54,5 +54,5 @@ module.exports = {
   errorHandler: require("./middlewares/errorHandler"),
 
   // Modelos
-  dataStore: require("./models/dataStore"),
+  models: require("./models/models"),
 };
