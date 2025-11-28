@@ -501,6 +501,156 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Salas",
+			"item": [
+				{
+					"name": "Get all salas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/api/salas",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"salas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create sala",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"numero\": \"502\",\n  \"descricao\": \"Sala de aula comum.\",\n  \"lotacao\": 30\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/api/salas",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"salas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cursos",
+			"item": [
+				{
+					"name": "Get all cursos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/api/cursos",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"cursos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create curso",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Programação\",\n  \"descricao\": \"lógica aplicada em código.\",\n  \"areaDeConhecimentoId\": \"f25e60ea-7640-45f9-98f4-aa52e06006e5\",\n  \"cargaHoraria\": 30,\n  \"numeroSemestres\": 2,\n  \"modalidade\": \"EAD\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/api/cursos",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"cursos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Matriz curricular",
+			"item": [
+				{
+					"name": "Get all matrizes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/api/matrizes-curriculares",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"matrizes-curriculares"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create matriz",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cursoId\": \"f8b2f3f7-dd6b-43f9-a759-7a2d09053a00\",\n  \"ano\": \"2025\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/api/matrizes-curriculares",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"matrizes-curriculares"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {

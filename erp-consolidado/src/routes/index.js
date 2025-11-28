@@ -17,6 +17,7 @@ const lessonRoutes = require("./lessonRoutes");
 const cursoRoutes = require("./cursoRoutes");
 const disciplinaRoutes = require("./disciplinaRoutes");
 const matrizCurricularRoutes = require("./matrizCurricularRoutes");
+const salaRoutes = require("./salaRoutes");
 
 // Registrar rotas
 router.use("/auth", authRoutes);
@@ -32,6 +33,9 @@ router.use("/matrizes-curriculares", matrizCurricularRoutes);
 
 // Módulo Áreas de Conhecimento
 router.use("/areas", areaRoutes);
+
+// Módulo Salas
+router.use("/salas", salaRoutes);
 
 // Módulo Classes
 router.use("/lessons", lessonRoutes); // aulas

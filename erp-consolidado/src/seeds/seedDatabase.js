@@ -17,6 +17,7 @@ const {
   Student,
   Class,
   Lesson,
+  Sala,
 } = require("../models/models");
 const bcryptjs = require("bcryptjs");
 
@@ -111,6 +112,22 @@ async function seedDatabase() {
       },
     ]);
     console.log(`✅ ${turmas.length} turmas criadas`);
+
+    // 4.5 Criar Salas
+    console.log("\n🏫 Criando salas...");
+    const salas = await Sala.bulkCreate([
+      {
+        numero: "101",
+        descricao: "Sala 101 - Bloco A",
+        lotacao: 40,
+      },
+      {
+        numero: "102",
+        descricao: "Sala 102 - Bloco A",
+        lotacao: 30,
+      },
+    ]);
+    console.log(`✅ ${salas.length} salas criadas`);
 
     // 5. Criar Alunos
     console.log("\n👨‍🎓 Criando alunos...");

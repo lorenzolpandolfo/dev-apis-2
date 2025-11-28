@@ -504,6 +504,43 @@ const Turma = sequelize.define(
   }
 );
 
+// Salas (Salas de aula)
+const Sala = sequelize.define(
+  "Sala",
+  {
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+    },
+    numero: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    descricao: {
+      type: DataTypes.TEXT,
+    },
+    lotacao: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+    },
+  },
+  {
+    tableName: "salas",
+    timestamps: true,
+  }
+);
+
 // Relacionamentos
 Professor.belongsTo(AreaDeConhecimento, { foreignKey: "areaDeConhecimentoId" });
 AreaDeConhecimento.hasMany(Professor, { foreignKey: "areaDeConhecimentoId" });
@@ -558,4 +595,5 @@ module.exports = {
   Disciplina,
   MatrizCurricular,
   MatrizCurricularDisciplina,
+  Sala,
 };
