@@ -16,7 +16,6 @@ const productRoutes = require("./productRoutes");
 const clientRoutes = require("./clientRoutes");
 const orderRoutes = require("./orderRoutes");
 const areaRoutes = require("./areaRoutes");
-const studentRoutes = require("./studentRoutes");
 const classRoutes = require("./classRoutes");
 const lessonRoutes = require("./lessonRoutes");
 
@@ -38,8 +37,7 @@ router.use("/orders", orderRoutes);
 router.use("/areas", areaRoutes);
 
 // Módulo Classes
-router.use("/students", studentRoutes);
-router.use("/classes", classRoutes);
-router.use("/lessons", lessonRoutes);
+router.use("/classes", classRoutes); // turmas
+router.use("/lessons", lessonRoutes); // aulas
 
 module.exports = router;
