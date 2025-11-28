@@ -208,6 +208,7 @@ Authorization: Bearer <seu_token_aqui>
 ## 🧪 Testes
 
 ```bash
+cd erp-consolidado
 npm test
 ```
 
