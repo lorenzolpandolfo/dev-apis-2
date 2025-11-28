@@ -13,7 +13,6 @@ const professorRoutes = require("./professorRoutes");
 const turmaRoutes = require("./turmaRoutes");
 const matriculaRoutes = require("./matriculaRoutes");
 const areaRoutes = require("./areaRoutes");
-const lessonRoutes = require("./lessonRoutes");
 const cursoRoutes = require("./cursoRoutes");
 const disciplinaRoutes = require("./disciplinaRoutes");
 const matrizCurricularRoutes = require("./matrizCurricularRoutes");
@@ -36,8 +35,5 @@ router.use("/areas", areaRoutes);
 
 // Módulo Salas
 router.use("/salas", salaRoutes);
-
-// Módulo Classes
-router.use("/lessons", lessonRoutes); // aulas
 
 module.exports = router;
