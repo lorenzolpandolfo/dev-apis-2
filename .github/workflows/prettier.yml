@@ -20,7 +20,7 @@ jobs:
           node-version: "18"
 
       - name: Install dependencies
-        run: npm ci
+        run: cd erp-consolidado/src/ && npm install
 
       - name: Run Prettier check
         run: npm run format:check
