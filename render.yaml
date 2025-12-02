@@ -1,7 +1,7 @@
 services:
   - type: web
     name: erp-consolidado
-    env: node
+    runtime: node
     plan: free
     branch: main
     buildCommand: cd erp-consolidado && npm install
@@ -16,4 +16,7 @@ services:
           property: connectionString
       - key: PORT
         value: "10000"
-    autoDeploy: true
+
+  - type: postgres
+    name: erp-db
+    plan: free
