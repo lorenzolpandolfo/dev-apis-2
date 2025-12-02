@@ -18,7 +18,7 @@ services:
       - key: PORT
         value: "10000"
 
-    databases:
-      - name: erp-db
-        plan: free
-        region: oregon
+databases:
+  - name: erp-db
+    plan: free
+    region: oregon
