@@ -114,7 +114,7 @@ const startServer = async () => {
       console.log("═══════════════════════════════════════════════════════\n");
     });
   } catch (error) {
-    console.error("❌ Erro ao iniciar servidor:", error.message);
+    console.error("❌ Erro ao iniciar servidor:", error, error.message);
     console.error(
       "\nVerifique se PostgreSQL está rodando e se as credenciais estão corretas."
     );
