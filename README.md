@@ -21,6 +21,13 @@ node server.js
 
 Agora, a API estará online no endereço `localhost:3000`
 
+## Deploy no render
+
+<img width="1366" height="736" alt="image" src="https://github.com/user-attachments/assets/8bf84821-f41e-4775-9fdd-7611e9c77fdb" />
+
+Endereço da API: `https://erp-consolidado-rte0.onrender.com`
+
+
 ## 📊 Banco de Dados
 
 **PostgreSQL** com ORM **Sequelize** - Totalmente configurado e pronto para produção.
