@@ -1,9 +1,10 @@
 services:
   - type: web
     name: erp-consolidado
-    runtime: node
+    env: node
     plan: free
     branch: main
+    region: oregon
     buildCommand: cd erp-consolidado && npm install
     startCommand: cd erp-consolidado && npm start
     healthCheckPath: /
@@ -17,6 +18,7 @@ services:
       - key: PORT
         value: "10000"
 
-  - type: postgres
-    name: erp-db
-    plan: free
+    databases:
+      - name: erp-db
+        plan: free
+        region: oregon
