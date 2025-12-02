@@ -39,9 +39,8 @@ class MatrizCurricularController {
   async getByCurso(req, res) {
     try {
       const { cursoId } = req.params;
-      const matrizes = await MatrizCurricularService.getMatrizesByCurso(
-        cursoId
-      );
+      const matrizes =
+        await MatrizCurricularService.getMatrizesByCurso(cursoId);
       res.status(200).json({
         status: "success",
         data: matrizes,
@@ -83,7 +82,7 @@ class MatrizCurricularController {
 
       await MatrizCurricularService.addDisciplinaToMatriz(
         matrizId,
-        disciplinaId
+        disciplinaId,
       );
       const matriz = await MatrizCurricularService.getMatrizById(matrizId);
 
@@ -106,7 +105,7 @@ class MatrizCurricularController {
 
       await MatrizCurricularService.removeDisciplinaFromMatriz(
         matrizId,
-        disciplinaId
+        disciplinaId,
       );
       const matriz = await MatrizCurricularService.getMatrizById(matrizId);
 

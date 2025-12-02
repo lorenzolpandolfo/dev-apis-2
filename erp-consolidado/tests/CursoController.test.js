@@ -108,7 +108,7 @@ describe("CursoController", () => {
   it("deve retornar erro 404 quando curso não encontrado", async () => {
     req.params.id = 999;
     CursoService.getCourseById.mockRejectedValue(
-      new Error("Curso não encontrado")
+      new Error("Curso não encontrado"),
     );
 
     await CursoController.getById(req, res);

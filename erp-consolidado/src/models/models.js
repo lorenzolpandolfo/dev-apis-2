@@ -39,7 +39,7 @@ const User = sequelize.define(
   {
     tableName: "users",
     timestamps: true,
-  }
+  },
 );
 
 // Áreas de Conhecimento
@@ -71,7 +71,7 @@ const AreaDeConhecimento = sequelize.define(
   {
     tableName: "areas_de_conhecimento",
     timestamps: true,
-  }
+  },
 );
 
 // Professores
@@ -117,7 +117,7 @@ const Professor = sequelize.define(
   {
     tableName: "professores",
     timestamps: true,
-  }
+  },
 );
 
 // Alunos
@@ -158,7 +158,7 @@ const Aluno = sequelize.define(
   {
     tableName: "alunos",
     timestamps: true,
-  }
+  },
 );
 
 // Matrículas
@@ -207,7 +207,7 @@ const Matricula = sequelize.define(
   {
     tableName: "matriculas",
     timestamps: true,
-  }
+  },
 );
 
 // Classes
@@ -244,7 +244,7 @@ const Class = sequelize.define(
   {
     tableName: "classes",
     timestamps: true,
-  }
+  },
 );
 
 // Aulas/Lessons
@@ -288,7 +288,7 @@ const Lesson = sequelize.define(
   {
     tableName: "lessons",
     timestamps: true,
-  }
+  },
 );
 
 // Cursos
@@ -340,7 +340,7 @@ const Curso = sequelize.define(
   {
     tableName: "cursos",
     timestamps: true,
-  }
+  },
 );
 
 // Disciplinas (para matriz curricular)
@@ -379,7 +379,7 @@ const Disciplina = sequelize.define(
   {
     tableName: "disciplinas",
     timestamps: true,
-  }
+  },
 );
 
 // Matriz Curricular
@@ -415,7 +415,7 @@ const MatrizCurricular = sequelize.define(
   {
     tableName: "matrizes_curriculares",
     timestamps: true,
-  }
+  },
 );
 
 // Matriz Curricular Disciplinas (many-to-many entre MatrizCurricular e Disciplina)
@@ -455,7 +455,7 @@ const MatrizCurricularDisciplina = sequelize.define(
   {
     tableName: "matrizes_curriculares_disciplinas",
     timestamps: true,
-  }
+  },
 );
 
 // Turmas
@@ -501,7 +501,7 @@ const Turma = sequelize.define(
   {
     tableName: "turmas",
     timestamps: true,
-  }
+  },
 );
 
 // Salas (Salas de aula)
@@ -538,7 +538,7 @@ const Sala = sequelize.define(
   {
     tableName: "salas",
     timestamps: true,
-  }
+  },
 );
 
 // Relacionamentos

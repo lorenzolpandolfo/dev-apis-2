@@ -13,7 +13,7 @@ router.post("/", MatrizCurricularController.create);
 router.post("/disciplina/add", MatrizCurricularController.addDisciplina);
 router.delete(
   "/:matrizId/disciplina/:disciplinaId",
-  MatrizCurricularController.removeDisciplina
+  MatrizCurricularController.removeDisciplina,
 );
 router.put("/:id", MatrizCurricularController.update);
 router.delete("/:id", MatrizCurricularController.delete);

@@ -40,7 +40,7 @@ class AreaDeConhecimentoService {
 
     if (areaData.nome && areaData.nome !== area.nome) {
       const existing = await AreaDeConhecimentoRepository.findByName(
-        areaData.nome
+        areaData.nome,
       );
       if (existing) {
         throw new Error("Área com este nome já existe");

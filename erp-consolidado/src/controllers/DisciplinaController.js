@@ -40,7 +40,7 @@ class DisciplinaController {
     try {
       const { semestre } = req.params;
       const disciplinas = await DisciplinaService.getDisciplinesBySemestre(
-        parseInt(semestre)
+        parseInt(semestre),
       );
       res.status(200).json({
         status: "success",

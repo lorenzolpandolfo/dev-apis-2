@@ -38,7 +38,7 @@ class MatriculaService {
 
     const existing = await MatriculaRepository.findByAlunoAndTurma(
       alunoId,
-      turmaId
+      turmaId,
     );
     if (existing) {
       throw new Error("Aluno já matriculado nesta turma");

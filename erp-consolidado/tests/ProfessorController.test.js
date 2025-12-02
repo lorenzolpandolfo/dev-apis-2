@@ -52,7 +52,7 @@ describe("ProfessorController", () => {
     it("deve retornar erro 500 quando ocorrer uma exceção", async () => {
       const errorMessage = "Erro ao buscar professores";
       ProfessorService.getAllProfessors.mockRejectedValue(
-        new Error(errorMessage)
+        new Error(errorMessage),
       );
 
       await ProfessorController.getAll(req, res);
@@ -92,7 +92,7 @@ describe("ProfessorController", () => {
       const errorMessage = "Professor não encontrado";
       req.params.id = 999;
       ProfessorService.getProfessorById.mockRejectedValue(
-        new Error(errorMessage)
+        new Error(errorMessage),
       );
 
       await ProfessorController.getById(req, res);
@@ -150,7 +150,7 @@ describe("ProfessorController", () => {
       };
 
       ProfessorService.createProfessor.mockRejectedValue(
-        new Error(errorMessage)
+        new Error(errorMessage),
       );
 
       await ProfessorController.create(req, res);
@@ -186,7 +186,7 @@ describe("ProfessorController", () => {
 
       expect(ProfessorService.updateProfessor).toHaveBeenCalledWith(
         1,
-        req.body
+        req.body,
       );
       expect(res.status).toHaveBeenCalledWith(200);
       expect(res.json).toHaveBeenCalledWith({

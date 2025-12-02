@@ -40,7 +40,7 @@ class CursoService {
       !modalidade
     ) {
       throw new Error(
-        "Nome, área de conhecimento, carga horária, número de semestres e modalidade são obrigatórios"
+        "Nome, área de conhecimento, carga horária, número de semestres e modalidade são obrigatórios",
       );
     }
 
@@ -49,9 +49,8 @@ class CursoService {
       throw new Error("Já existe um curso com este nome");
     }
 
-    const area = await AreaDeConhecimentoRepository.findById(
-      areaDeConhecimentoId
-    );
+    const area =
+      await AreaDeConhecimentoRepository.findById(areaDeConhecimentoId);
     if (!area) {
       throw new Error("Área de conhecimento não encontrada");
     }
@@ -89,7 +88,7 @@ class CursoService {
       courseData.areaDeConhecimentoId !== curso.areaDeConhecimentoId
     ) {
       const area = await AreaDeConhecimentoRepository.findById(
-        courseData.areaDeConhecimentoId
+        courseData.areaDeConhecimentoId,
       );
       if (!area) {
         throw new Error("Área de conhecimento não encontrada");

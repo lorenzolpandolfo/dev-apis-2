@@ -44,7 +44,7 @@ class TurmaService {
 
     if (turmaData.professorId && turmaData.professorId !== turma.professorId) {
       const professor = await ProfessorRepository.findById(
-        turmaData.professorId
+        turmaData.professorId,
       );
       if (!professor) {
         throw new Error("Professor não encontrado");

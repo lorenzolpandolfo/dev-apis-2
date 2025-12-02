@@ -17,12 +17,12 @@ router.delete("/:id", authMiddleware, MatriculaController.delete);
 router.get(
   "/aluno/:alunoId",
   authMiddleware,
-  MatriculaController.getStudentEnrollments
+  MatriculaController.getStudentEnrollments,
 );
 router.get(
   "/turma/:turmaId",
   authMiddleware,
-  MatriculaController.getClassEnrollments
+  MatriculaController.getClassEnrollments,
 );
 
 module.exports = router;

@@ -56,7 +56,7 @@ class AuthService {
     const token = jwt.sign(
       { userId: user.id, email: user.email, role: user.role },
       this.jwtSecret,
-      { expiresIn: this.jwtExpiration }
+      { expiresIn: this.jwtExpiration },
     );
 
     return {

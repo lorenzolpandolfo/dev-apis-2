@@ -43,11 +43,11 @@ class MatrizCurricularService {
 
     const existingMatriz = await MatrizCurricularRepository.findByCursoAndAno(
       cursoId,
-      ano
+      ano,
     );
     if (existingMatriz) {
       throw new Error(
-        "Já existe uma matriz curricular para este curso no ano informado"
+        "Já existe uma matriz curricular para este curso no ano informado",
       );
     }
 
@@ -69,7 +69,7 @@ class MatrizCurricularService {
 
       if (totalCargaHoraria !== curso.cargaHoraria) {
         throw new Error(
-          `Soma da carga horária das disciplinas (${totalCargaHoraria}h) não corresponde à carga horária do curso (${curso.cargaHoraria}h)`
+          `Soma da carga horária das disciplinas (${totalCargaHoraria}h) não corresponde à carga horária do curso (${curso.cargaHoraria}h)`,
         );
       }
 
@@ -87,7 +87,7 @@ class MatrizCurricularService {
       }
 
       return await MatrizCurricularRepository.findByIdWithDisciplinas(
-        matriz.id
+        matriz.id,
       );
     }
 
@@ -111,7 +111,7 @@ class MatrizCurricularService {
     const existing =
       await MatrizCurricularDisciplinaRepository.findByMatrizAndDisciplina(
         matrizId,
-        disciplinaId
+        disciplinaId,
       );
     if (existing) {
       throw new Error("Esta disciplina já está associada a esta matriz");
@@ -130,7 +130,7 @@ class MatrizCurricularService {
 
     if (totalCargaHoraria > curso.cargaHoraria) {
       throw new Error(
-        `Adicionar esta disciplina excederia a carga horária do curso. Total seria ${totalCargaHoraria}h, máximo é ${curso.cargaHoraria}h`
+        `Adicionar esta disciplina excederia a carga horária do curso. Total seria ${totalCargaHoraria}h, máximo é ${curso.cargaHoraria}h`,
       );
     }
 
@@ -144,14 +144,14 @@ class MatrizCurricularService {
     const existing =
       await MatrizCurricularDisciplinaRepository.findByMatrizAndDisciplina(
         matrizId,
-        disciplinaId
+        disciplinaId,
       );
     if (!existing) {
       throw new Error("Disciplina não encontrada nesta matriz");
     }
 
     const deleted = await MatrizCurricularDisciplinaRepository.delete(
-      existing.id
+      existing.id,
     );
 
     if (!deleted) {
@@ -197,7 +197,7 @@ class MatrizCurricularService {
 
     const disciplinas = matriz.MatrizCurricularDisciplinas
       ? matriz.MatrizCurricularDisciplinas.map((item) => item.Disciplina).sort(
-          (a, b) => a.semestre - b.semestre
+          (a, b) => a.semestre - b.semestre,
         )
       : [];
 

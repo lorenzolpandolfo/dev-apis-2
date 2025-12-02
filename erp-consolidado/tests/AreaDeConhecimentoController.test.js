@@ -40,7 +40,7 @@ describe("AreaDeConhecimentoController", () => {
     it("deve retornar erro 500 quando ocorrer uma exceção", async () => {
       const errorMessage = "Erro ao buscar áreas";
       AreaDeConhecimentoService.getAllAreas.mockRejectedValue(
-        new Error(errorMessage)
+        new Error(errorMessage),
       );
 
       await AreaDeConhecimentoController.getAll(req, res);
@@ -78,7 +78,7 @@ describe("AreaDeConhecimentoController", () => {
       const errorMessage = "Área não encontrada";
       req.params.id = 999;
       AreaDeConhecimentoService.getAreaById.mockRejectedValue(
-        new Error(errorMessage)
+        new Error(errorMessage),
       );
 
       await AreaDeConhecimentoController.getById(req, res);
@@ -125,7 +125,7 @@ describe("AreaDeConhecimentoController", () => {
       req.body = { descricao: "Alguma descrição" };
 
       AreaDeConhecimentoService.createArea.mockRejectedValue(
-        new Error(errorMessage)
+        new Error(errorMessage),
       );
 
       await AreaDeConhecimentoController.create(req, res);
@@ -155,7 +155,7 @@ describe("AreaDeConhecimentoController", () => {
 
       expect(AreaDeConhecimentoService.updateArea).toHaveBeenCalledWith(
         1,
-        req.body
+        req.body,
       );
       expect(res.status).toHaveBeenCalledWith(200);
       expect(res.json).toHaveBeenCalledWith({

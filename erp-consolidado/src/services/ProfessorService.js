@@ -51,7 +51,7 @@ class ProfessorService {
 
     if (professorData.email && professorData.email !== professor.email) {
       const existing = await ProfessorRepository.findByEmail(
-        professorData.email
+        professorData.email,
       );
       if (existing) {
         throw new Error("Email já cadastrado");
@@ -63,7 +63,7 @@ class ProfessorService {
       professorData.matricula !== professor.matricula
     ) {
       const existing = await ProfessorRepository.findByMatricula(
-        professorData.matricula
+        professorData.matricula,
       );
       if (existing) {
         throw new Error("Matrícula já cadastrada");

@@ -106,7 +106,7 @@ describe("MatriculaController", () => {
 
   it("deve retornar erro 500 ao buscar matrículas", async () => {
     MatriculaService.getAllEnrollments.mockRejectedValue(
-      new Error("Erro no banco")
+      new Error("Erro no banco"),
     );
 
     await MatriculaController.getAll(req, res);

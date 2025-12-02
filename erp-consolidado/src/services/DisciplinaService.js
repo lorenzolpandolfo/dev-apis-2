@@ -59,7 +59,7 @@ class DisciplinaService {
 
     if (disciplineData.nome && disciplineData.nome !== disciplina.nome) {
       const existing = await DisciplinaRepository.findByNome(
-        disciplineData.nome
+        disciplineData.nome,
       );
       if (existing) {
         throw new Error("Já existe uma disciplina com este nome");

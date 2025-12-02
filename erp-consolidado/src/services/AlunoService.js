@@ -38,9 +38,8 @@ class AlunoService {
       throw new Error("Já existe um aluno com este email");
     }
 
-    const existingByMatricula = await AlunoRepository.findByMatricula(
-      matricula
-    );
+    const existingByMatricula =
+      await AlunoRepository.findByMatricula(matricula);
     if (existingByMatricula) {
       throw new Error("Já existe um aluno com esta matrícula");
     }
@@ -65,7 +64,7 @@ class AlunoService {
 
     if (alunoData.matricula && alunoData.matricula !== aluno.matricula) {
       const existing = await AlunoRepository.findByMatricula(
-        alunoData.matricula
+        alunoData.matricula,
       );
       if (existing) {
         throw new Error("Matrícula já cadastrada");

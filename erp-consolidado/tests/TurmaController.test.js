@@ -97,7 +97,7 @@ describe("TurmaController", () => {
   it("deve retornar erro 404 quando turma não encontrada", async () => {
     req.params.id = 999;
     TurmaService.getClassById.mockRejectedValue(
-      new Error("Turma não encontrada")
+      new Error("Turma não encontrada"),
     );
 
     await TurmaController.getById(req, res);

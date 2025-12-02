@@ -52,7 +52,7 @@ describe("DisciplinaController", () => {
     ];
     req.params.semestre = "1";
     DisciplinaService.getDisciplinesBySemestre.mockResolvedValue(
-      mockDisciplinas
+      mockDisciplinas,
     );
 
     await DisciplinaController.getBySemestre(req, res);
@@ -114,7 +114,7 @@ describe("DisciplinaController", () => {
 
   it("deve retornar erro 500 ao buscar disciplinas", async () => {
     DisciplinaService.getAllDisciplines.mockRejectedValue(
-      new Error("Erro ao buscar")
+      new Error("Erro ao buscar"),
     );
 
     await DisciplinaController.getAll(req, res);

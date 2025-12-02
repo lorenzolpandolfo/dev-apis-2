@@ -10,7 +10,7 @@ const requestLogger = (req, res, next) => {
     console.log(
       `[${new Date().toISOString()}] ${req.method} ${
         req.originalUrl
-      } - Status: ${res.statusCode} - ${duration}ms`
+      } - Status: ${res.statusCode} - ${duration}ms`,
     );
   });
 

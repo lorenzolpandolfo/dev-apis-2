@@ -93,7 +93,7 @@ describe("MatrizCurricularController", () => {
   it("deve retornar erro 404 quando matriz não encontrada", async () => {
     req.params.id = 999;
     MatrizCurricularService.getMatrizById.mockRejectedValue(
-      new Error("Matriz não encontrada")
+      new Error("Matriz não encontrada"),
     );
 
     await MatrizCurricularController.getById(req, res);
